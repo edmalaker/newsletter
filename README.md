@@ -1,0 +1,2 @@
+# newsletter
+simple php autoresponder
