@@ -29,7 +29,7 @@ try {
 	
 	
     
-	$mail->addAddress('edmalaker@gmail.com', 'Joe User');     // Add a recipient
+	$mail->addAddress('to@example.com', 'Joe User');     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
 	
 	
