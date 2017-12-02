@@ -96,6 +96,24 @@ if ($key == 2)
 							$stmt->execute();
 
 							echo "New records created successfully";
+							
+						/*
+						$toemail = $email; //we set it to send the email to the email the user submitted
+						$toname = $name;	// this is what the user submitted as their name
+						$subject = 'Welcome';	// for a subject we welcome them to our club
+						$body = 'Thank you for signing up.'; // this is the thank you message in html
+						$altbody = 'Thank you for signing up.'; //same message for people with html turned off
+						require 'mail-function.php';
+						
+						$toemail = 'your email'; //we set it to send the email to us
+						$toname = 'your name';	// our own name
+						$subject = 'New User';	// subject line will say New User
+						$body = $email; // I have it set to give me the email of the new sign up
+						$altbody = $email; //same message
+						require 'mail-function.php';
+						
+						*/
+						
 						}
 						
 						catch(PDOException $e)
