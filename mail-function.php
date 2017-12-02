@@ -29,7 +29,7 @@ try {
 	
 	
     
-	$mail->addAddress('to@example.com', 'Joe User');     // Add a recipient
+	$mail->addAddress($toemail, $toname);     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
 	
 	
@@ -43,9 +43,9 @@ try {
 
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->Subject = $subject;
+    $mail->Body    = $body;
+    $mail->AltBody = $altbody;
 
     $mail->send();
     echo 'Message has been sent';
