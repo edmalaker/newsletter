@@ -29,8 +29,8 @@ while ($row = $stmt->fetchObject()) {
 	$toname = $row->name;
 	$toemail = $row->email;
 	
-	echo $thisname.'  - ';
-	echo $thisemail.'<br>';
+	echo $toname.'  - ';
+	echo $toemail.'<br>';
 
 	try {
     //Server settings
