@@ -1,4 +1,4 @@
-<?php
+a<?php
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -22,10 +22,14 @@ try {
     $mail->Password = 'secret';                           // SMTP password for the email that you are sending from
     $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted - mine uses ssl
     $mail->Port = 587;                                    // TCP port to connect to - get this information from your host
-
+	
+	$fromemail = '';
+	$fromname = '';
+	$toemail = '';
+	$toname = '';
     
 	//Recipients
-    $mail->setFrom('from@example.com', 'Mailer');   //from email and who is sending
+    $mail->setFrom($fromemail, $fromname);   //from email and who is sending
 	
 	
     
