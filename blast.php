@@ -42,9 +42,12 @@ while ($row = $stmt->fetchObject()) {
     $mail->Password = 'secret';                           // SMTP password for the email that you are sending from
     $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted - mine uses ssl
     $mail->Port = 587;                                    // TCP port to connect to - get this information from your host
+		
+	$fromemail = '';
+	$fromname = '';
     
 	//Recipients
-    $mail->setFrom('from@example.com', 'Mailer');   //from email and who is sending
+    $mail->setFrom($fromemail, $fromname);   //from email and who is sending
 	
 	
     
