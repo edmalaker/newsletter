@@ -98,6 +98,9 @@ if ($key == 2)
 							echo "New records created successfully";
 							
 						/*
+						
+						// send Thank You message to subscriber
+						
 						$toemail = $email; //we set it to send the email to the email the user submitted
 						$toname = $name;	// this is what the user submitted as their name
 						$subject = 'Welcome';	// for a subject we welcome them to our club
@@ -105,10 +108,16 @@ if ($key == 2)
 						$altbody = 'Thank you for signing up.'; //same message for people with html turned off
 						require 'mail-function.php';
 						
+						$subemail = $email;  //these 2 variables are for our  NEW SUBSCRIBER message to ourself
+						$subname = $name;
+						
+						
+						// send New Subscriber message to myself
+						
 						$toemail = 'your email'; //we set it to send the email to us
 						$toname = 'your name';	// our own name
-						$subject = 'New User';	// subject line will say New User
-						$body = $email; // I have it set to give me the email of the new sign up
+						$subject = 'New Subscriber';
+						$body = "New sign-up named ".$subname." signed up with the email ".$subemail;
 						$altbody = $email; //same message
 						require 'mail-function.php';
 						
