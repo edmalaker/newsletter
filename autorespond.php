@@ -10,9 +10,6 @@ use PHPMailer\PHPMailer\Exception;
 //This needs to be changed to your specific host
 require '../../vendor/autoload.php';
 
-//This needed to be changed on mine to what I have here
-$mail = new \PHPMailer;
-
 
 
 //use arrays to store all of the subjects and body messages
@@ -71,6 +68,9 @@ while ($row = $stmt2->fetchObject()) {
 	
 	// send the email
 	try {
+		
+	$mail = new \PHPMailer;
+		
     //Server settings
     $mail->SMTPDebug = 2;                                 // Enable verbose debug output - 0 for no output
     $mail->isSMTP();                                      // Set mailer to use SMTP
