@@ -13,9 +13,9 @@ require '../../vendor/autoload.php';
 
 
 //use arrays to store all of the subjects and body messages
-$subject = array();
-$body = array();
-$altbody = array();
+$messagesubject = array();
+$messagebody = array();
+$messagealtbody = array();
 
 
 
@@ -30,9 +30,9 @@ $stmt->execute();
 while ($row = $stmt->fetchObject()) {
 
 	$id = $row->id;
-	$subject[$id] = $row->subject;
-	$body[$id] = $row->body;
-	$altbody[$id] = $row->altbody;
+	$messagesubject[$id] = $row->subject;
+	$messagebody[$id] = $row->body;
+	$messagealtbody[$id] = $row->altbody;
 }
 
 
@@ -56,7 +56,7 @@ while ($row = $stmt2->fetchObject()) {
 	$toname = $row->name;
 	$toemail = $row->email;
 	$followup = $row->followup;
-	$messagenumber = sizeof($subject); //this is the total number of messages in database
+	$messagenumber = sizeof($messagesubject); //this is the total number of messages in database
 
 	echo 'Total number of messages in database '.$messagenumber."<br />";
 	echo 'mailing to '.$toname.'  - ';
@@ -87,16 +87,14 @@ while ($row = $stmt2->fetchObject()) {
 	
 	
 	
-	$subject = $subject[$followup];
-	$body = $body[$followup];
-	$altbody = $altbody[$followup];
+	$subject = $messagesubject[$followup];
+	$body = $messagebody[$followup];
+	$altbody = $messagealtbody[$followup];
 
     
 	//Recipients
-    $mail->setFrom($fromemail, $fromname);   //from email and who is sending
+   	$mail->setFrom($fromemail, $fromname);   //from email and who is sending
 	
-	
-    
 	$mail->addAddress($toemail, $toname);     // Add a recipient
 	
 
@@ -107,7 +105,7 @@ while ($row = $stmt2->fetchObject()) {
     $mail->AltBody = $altbody;
 
     $mail->send();
-    echo 'Message has been sent';
+    echo 'Message has been sent <br />';
 } catch (Exception $e) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
