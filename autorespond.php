@@ -56,11 +56,12 @@ while ($row = $stmt2->fetchObject()) {
 	$toname = $row->name;
 	$toemail = $row->email;
 	$followup = $row->followup;
-	$messagenumber = sizeof($subject);
+	$messagenumber = sizeof($subject); //this is the total number of messages in database
 
-	echo $toname.'  - ';
+	echo 'Total number of messages in database '.$messagenumber."<br />";
+	echo 'mailing to '.$toname.'  - ';
 	echo $toemail.'<br />';
-	echo $messagenumber."<br />";
+	echo '<hr />';
 	
 	
 	// check to see if this user already received the last message 
