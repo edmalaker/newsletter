@@ -11,6 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 require '../../vendor/autoload.php';
 
 
+$messagessent = 0; //variable to track how many messages are sent each cron job
 
 //use arrays to store all of the subjects and body messages
 $messagesubject = array();
@@ -133,5 +134,6 @@ $stmt3->execute();
 	
 }
 
+echo 'Total Number of Messages Sent = '.$messagessent;
 
 ?>
