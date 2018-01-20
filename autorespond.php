@@ -50,18 +50,20 @@ $total = $stmt2->rowCount();  //total number of subscribers
 echo '<p>Number of subscribers:'.$total.'</p>';
 
 
+//count number of messages
+$messagenumber = sizeof($messagesubject); //this is the total number of messages in database
+echo 'Total number of messages in database '.$messagenumber.'<br /><hr />';
+
+
 //for each subscriber echo their name and email
 while ($row = $stmt2->fetchObject()) {
 
 	$toname = $row->name;
 	$toemail = $row->email;
 	$followup = $row->followup;
-	$messagenumber = sizeof($messagesubject); //this is the total number of messages in database
-
-	echo 'Total number of messages in database '.$messagenumber."<br />";
-	echo 'mailing to '.$toname.'  - ';
-	echo $toemail.'<br />';
-	echo '<hr />';
+	
+	echo '<p>Mailing to '.$toname.'  - '.$toemail.'<br />';
+	echo 'Message Number: '.$followup.'<br></p>';
 	
 	
 	// check to see if this user already received the last message 
@@ -105,7 +107,7 @@ while ($row = $stmt2->fetchObject()) {
     $mail->AltBody = $altbody;
 
     $mail->send();
-    echo 'Message has been sent <br />';
+    echo '<strong>Message Sent</strong><br /><hr />';
 } catch (Exception $e) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
